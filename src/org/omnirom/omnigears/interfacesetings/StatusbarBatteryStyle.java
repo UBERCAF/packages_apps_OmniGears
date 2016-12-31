@@ -47,7 +47,7 @@ import com.android.settings.search.Indexable;
 import java.util.List;
 import java.util.ArrayList;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import org.omnirom.omnigears.preference.ColorPickerPreference;
 
 public class StatusbarBatteryStyle extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
@@ -77,7 +77,7 @@ public class StatusbarBatteryStyle extends SettingsPreferenceFragment implements
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.FLASH;
+        return MetricsEvent.OMNI_SETTINGS;
     }
 
     @Override
@@ -108,7 +108,6 @@ public class StatusbarBatteryStyle extends SettingsPreferenceFragment implements
         int chargeColor = Settings.Secure.getInt(resolver,
                 Settings.Secure.STATUS_BAR_CHARGE_COLOR, Color.WHITE);
         mChargeColor = (ColorPickerPreference) findPreference("status_bar_charge_color");
-        mChargeColor.setNewPreviewColor(chargeColor);
         mChargeColor.setOnPreferenceChangeListener(this);
 
         mStatusBarBatteryShowPercent =
